@@ -3,11 +3,11 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-import { Nav } from './components/Nav'
+import NavMenu from './components/Nav'
 
 import PageCollections from './pages/Collections'
 import PageSearch from './pages/Search'
-import PageHome from './pages/Home';
+import PageHome from './pages/Home'
 
 const Style = createGlobalStyle`
   * { box-sizing: border-box; }
@@ -43,7 +43,7 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<Root>
 				<Style />
-				<Nav />
+				<NavMenu />
 				<Router>
 					<Switch>
 						<Route exact path="/" component={PageHome} />
