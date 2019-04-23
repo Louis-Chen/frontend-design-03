@@ -1,4 +1,5 @@
 import React from 'react'
+import { times } from 'lodash'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 
@@ -41,14 +42,50 @@ const Tag = styled.div`
 `
 
 const Header = styled.div`
-	background-color: aliceblue;
-	height: 236px;
+	position: relative;
+	/* background-color: aliceblue; */
+	height: 160px;
+`
+const HeaderTitle = styled.h1`
+	font-size: 3rem;
+	&:after{
+		content:'${props => props.content}';
+	}
+`
+const HeaderFooter = styled.div`
+	display: flex;
+	position: absolute;
+	bottom: 0;
+`
+const HeaderItem = styled.a`
+	margin-left:1rem;
+	margin-right:1rem;
+
+	${space}
+	
+	color:#111111;
+
+	&:hover{	
+		color: #999999;
+		cursor:pointer;
+	}
+	&:after{
+		content:'${props => props.content}';
+	}
 `
 const Content = styled.div`
-	background-color: violet;
-	height: 100vh;
+	-moz-column-width: 16em;
+	-webkit-column-width: 16em;
+	-moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+	${space}
 `
 
+const Card = styled.div`
+	display: inline-block;
+	width: 100%;
+	
+`
 const PageSearch = () => {
 	return (
 		<React.Fragment>
@@ -78,37 +115,58 @@ const PageSearch = () => {
 						<Tag content="Tag0" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag1" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag2" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag3" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag4" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag5" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag6" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag7" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag8" />
 					</div>
 					<div>
-						<Tag content="Tag0" />
+						<Tag content="Tag10" />
 					</div>
 				</Slider>
 			</TagList>
 			<PageContainer>
-				<Header />
-				<Content />
+				<Header>
+					<HeaderTitle content="Search Tag" />
+					<HeaderFooter>
+						<HeaderItem ml={0} content="505 Photos" />
+						<HeaderItem content="505 Photos" />
+						<HeaderItem content="505 Photos" />
+					</HeaderFooter>
+				</Header>
+				<Content ml={0} mr={0} mt={4}>
+					{times(30, (i, key) => {
+						const numImagesAvailable = 242
+						let randomImageIndex = Math.floor(Math.random() * numImagesAvailable)
+						return (
+							<Card>
+								<img
+									style={{ width: '100%', marginTop: '8px', verticalAlign: 'middle' }}
+									src={`https://source.unsplash.com/random/?sig=${randomImageIndex}`}
+									alt={key}
+								/>
+							</Card>
+						)
+					})}
+				</Content>
 			</PageContainer>
 		</React.Fragment>
 	)
