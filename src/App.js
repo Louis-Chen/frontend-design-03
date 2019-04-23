@@ -1,9 +1,13 @@
 import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { space, color, fontSize, width, fontWeight, lineHeight } from 'styled-system'
+
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+
+import { Nav } from './components/Nav'
 
 import PageCollections from './pages/Collections'
-import { Nav } from './components/Nav'
+import PageSearch from './pages/Search'
+import PageHome from './pages/Home';
 
 const Style = createGlobalStyle`
   * { box-sizing: border-box; }
@@ -34,20 +38,19 @@ const Root = styled.div`
 	line-height: 1.5;
 `
 
-const PageContainer = styled.div`
-	padding-left: 80px;
-	padding-right: 80px;
-`
-
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<Root>
 				<Style />
 				<Nav />
-				<PageContainer>
-					<PageCollections />
-				</PageContainer>
+				<Router>
+					<Switch>
+						<Route exact path="/" component={PageHome} />
+						<Route path="/search" component={PageSearch} />
+						<Route path="/collections" component={PageCollections} />
+					</Switch>
+				</Router>
 			</Root>
 		</ThemeProvider>
 	)

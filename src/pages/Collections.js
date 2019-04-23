@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { PageContainer } from '../components/Container'
+
 const Header = styled.div`
 	background-color: beige;
 
@@ -13,10 +15,10 @@ const Collection = styled.div`
 
 const PageCollections = () => {
 	return (
-		<React.Fragment>
+		<PageContainer>
 			<Header />
 			<Collection />
-		</React.Fragment>
+		</PageContainer>
 	)
 }
 
