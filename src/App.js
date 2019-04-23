@@ -16,6 +16,24 @@ const Style = createGlobalStyle`
 
 const theme = {
 	fontSizes: [12, 14, 16, 24, 32, 48, 64, 96, 128],
+	flexboxgrid: {
+		// Defaults
+		gridSize: 12, // columns
+		gutterWidth: 1, // rem
+		outerMargin: 2, // rem
+		mediaQuery: 'only screen',
+		container: {
+			sm: 46, // rem
+			md: 61, // rem
+			lg: 76 // rem
+		},
+		breakpoints: {
+			xs: 0, // em
+			sm: 48, // em
+			md: 64, // em
+			lg: 75 // em
+		}
+	},
 	space: [
 		// margin and padding
 		0,
@@ -34,7 +52,7 @@ const theme = {
 }
 
 const Root = styled.div`
-	font-family: system-ui, sans-serif, 'SF UI Display';
+	font-family: 'SF UI Display', system-ui, sans-serif;
 	line-height: 1.5;
 `
 
