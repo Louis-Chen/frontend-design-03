@@ -11,7 +11,12 @@ import PageHome from './pages/Home'
 
 const Style = createGlobalStyle`
   * { box-sizing: border-box; }
-  body{ margin:0; }
+  body { 
+	@import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css";
+	@import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css";
+
+	margin:0; 
+  }
 `
 
 const theme = {
