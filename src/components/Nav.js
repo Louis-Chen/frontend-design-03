@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
 import { space } from 'styled-system'
 
 import avatar from '../assets/avatar.svg'
@@ -121,7 +123,8 @@ const ProfileAvatar = styled.img`
 	height: 2rem;
 	width: 2rem;
 `
-const NavMenu = () => {
+const NavMenu = props => {
+	const { history } = props
 	return (
 		<Nav mt={1} mr={3} ml={3}>
 			<label>
@@ -134,8 +137,12 @@ const NavMenu = () => {
 				<SearchInput placeholder="Search free high-resolution photos" />
 			</Search>
 			<NavItemGroup>
-				<NavItem content="Home" />
-				<NavItem content="Collections" />
+				<Link to="/">
+					<NavItem content="Home" />
+				</Link>
+				<Link to="/">
+					<NavItem content="Collections" />
+				</Link>
 			</NavItemGroup>
 			<ProfileGroup>
 				<ProfileSubmit content="Submit a photo" />

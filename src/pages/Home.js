@@ -2,7 +2,7 @@ import React from 'react'
 import { times } from 'lodash'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-
+import { Link } from 'react-router-dom'
 import { PageContainer } from '../components/Container'
 
 const Hero = styled.div`
@@ -165,7 +165,9 @@ const PageHome = () => {
 						</HeroSearchLabel>
 						<HeroSearchInput placeholder="Search free high-resolution photos" />
 						<HeroSearchButton>
-							<HeroSearchSubmit content="Search" />
+							<Link to="/search">
+								<HeroSearchSubmit content="Search" />
+							</Link>
 						</HeroSearchButton>
 					</HeroSearch>
 					<HeroPragraph>

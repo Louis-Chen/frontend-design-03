@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
 import NavMenu from './components/Nav'
 
@@ -66,8 +67,9 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<Root>
 				<Style />
-				<NavMenu />
-				<Router>
+				<Router history={createBrowserHistory}>
+					<NavMenu />
+
 					<Switch>
 						<Route exact path="/" component={PageHome} />
 						<Route path="/search" component={PageSearch} />
